@@ -1,3 +1,4 @@
+use anyhow::Result;
 pub fn control(input: String) -> ControlFlow<()> {
     const OPT_YES: &str = "y";
     const OPT_QUIT: &str = "q";

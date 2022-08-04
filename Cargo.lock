@@ -319,14 +319,15 @@ checksum = "baf1de4339761588bc0619e3cbc0120ee582ebb74b53b4efbf79117bd2da40fd"
 
 [[package]]
 name = "chrono"
-version = "0.4.19"
+version = "0.4.20"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "670ad68c9088c2a963aaa298cb369688cf3f9465ce5e2d4ca10e6e0098a1ce73"
+checksum = "6127248204b9aba09a362f6c930ef6a78f2c1b2215f8a7b398c06e1083f17af0"
 dependencies = [
- "libc",
+ "js-sys",
  "num-integer",
  "num-traits",
  "time",
+ "wasm-bindgen",
  "winapi 0.3.9",
 ]
 
@@ -390,6 +391,13 @@ dependencies = [
  "file-size",
  "log",
  "proc-status",
+]
+
+[[package]]
+name = "cli_clap"
+version = "0.1.0"
+dependencies = [
+ "clap 3.2.16",
 ]
 
 [[package]]
@@ -757,6 +765,15 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "6930e04918388a9a2e41d518c25cf679ccafe26733fb4127dbf21993f2575d46"
 dependencies = [
  "backtrace",
+]
+
+[[package]]
+name = "error-stack"
+version = "0.1.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "5975af488b218348f3f183862f88e8699a91a809f0ee2658fcafaa6239d6759e"
+dependencies = [
+ "rustc_version",
 ]
 
 [[package]]
@@ -1396,11 +1413,14 @@ version = "0.1.0"
 dependencies = [
  "anyhow",
  "approx",
+ "autocfg 1.1.0",
  "bacon",
  "chrono",
+ "clap 3.2.16",
  "colored",
  "criterion",
  "env_logger 0.9.0",
+ "error-stack",
  "log",
  "plotters",
  "pretty_env_logger",

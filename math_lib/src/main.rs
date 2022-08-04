@@ -1,5 +1,6 @@
 use std::{thread::sleep, time::Duration};
 
+extern crate autocfg;
 use crate::sqrt::sqrt_f64::Sqrt;
 use colored::*;
 use log::info;
@@ -12,6 +13,11 @@ fn main() {
     let dist = distance();
     println!("distance: {}", dist);
     dist_2d(A::new(1.0, 2.0), B::new(2.0, 4.0));
+    let ac = autocfg::new();
+    ac.emit_has_type("i128");
+
+    // (optional) We don't need to rerun for anything external.
+    autocfg::rerun_path("build.rs");
 }
 
 fn distance() -> f64 {

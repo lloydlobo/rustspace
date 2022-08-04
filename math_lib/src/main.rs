@@ -9,53 +9,26 @@ use serde_json::Value;
 pub mod sqrt;
 fn main() {
     println!("{}", "SQRT This".blue().bold());
-    let num: f64  = 999_999_999_999.999;
-    let res_float = Sqrt::custom_sqrt(num);
-    println!("SQRT_float: {}", res_float);
     let dist = distance();
-    info!("distance: {}", dist);
+    println!("distance: {}", dist);
     dist_2d(A::new(1.0, 2.0), B::new(2.0, 4.0));
-
-    fn binary_search_sqrt_f64(value: f64, left: f64, right: f64) -> f64 {
-        let root = (left + right) / 2.0;
-        if root == left || root == right {
-            return root as f64;
-        }
-        sleep(Duration::from_millis(100));
-        // println!("now({}): {:?}", time_ms, now);
-        // println!("root {}, value {}, left {}, right {}", root, value, left, right);
-        println!("root * root: {}, value: {}", root * root, value);
-        if (root * root) as f64 > value {
-            println!("{}", "greater".red());
-            println!("value {}, left {}, root {}", value, left, root);
-            binary_search_sqrt_f64(value, left, root)
-        } else {
-            println!("{}", "lesser".yellow());
-            println!("value {}, root {}, right {}, ", value, root, right);
-            binary_search_sqrt_f64(value, root, right)
-        }
-    }
-
-    pub(crate) fn custom_sqrt(n: f64) -> f64 {
-        binary_search_sqrt_f64(n, 0.0, n)
-    }
-
-    let res_custom_sqrt = custom_sqrt(num);
-    let res_rust_sqrt = num.sqrt();
-    println!("sqrt1: {}", res_custom_sqrt);
-    println!("sqrt2: {}", res_rust_sqrt);
 }
 
 fn distance() -> f64 {
-    let vec_a: A = A::new(1.0, 2.0);
-    let vec_b: B = B::new(2.0, 4.0);
-    info!("vec_a: {:?}, vec_b: {:?}", vec_a, vec_b);
+    let va: A = A::new(1.0, 2.0);
+    let vb: B = B::new(2.0, 4.0);
+    println!("vec_a: {:?}, vec_b: {:?}", va, vb);
     let (ax, ay): (f64, f64) = (1.0, 2.0);
     let (bx, by): (f64, f64) = (2.0, 4.0);
     let a: f64 = ax - bx;
     let b: f64 = ay - by;
     let result_sqrt = Sqrt::custom_sqrt(a * a + b * b);
-    info!("lib | result: {}", result_sqrt);
+    let ab_x = (va.0 - vb.0);
+    let ab_y = (va.1 - vb.1);
+    let a_b = ab_x * ab_x + ab_y * ab_y;
+    let distance_std = a_b.sqrt();
+
+    println!("lib | result: {}", result_sqrt);
 
     result_sqrt
 }

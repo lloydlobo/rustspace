@@ -25,13 +25,6 @@ mod tests {
     }
 
     #[test]
-    fn test_sqrt_custom_sqrt() {
-        let number = 81.0;
-        let sqrt = Sqrt::custom_sqrt(number);
-
-        assert_eq!(sqrt, 9.0);
-    }
-    #[test]
     fn bench_math_lib_sqrt() {
         let time_ms: u64 = 10;
         let ten_millis: Duration = time::Duration::from_millis(time_ms);

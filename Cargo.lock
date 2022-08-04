@@ -681,12 +681,14 @@ dependencies = [
  "anyhow",
  "approx",
  "bacon",
+ "chrono",
  "colored",
  "criterion",
  "log",
  "plotters",
  "quickcheck",
  "rand",
+ "roots",
  "serde",
  "serde_json",
 ]
@@ -1023,6 +1025,12 @@ name = "regex-syntax"
 version = "0.6.27"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "a3f87b73ce11b1619a3c6332f45341e0047173771e8b8b73f87bfeefb7b56244"
+
+[[package]]
+name = "roots"
+version = "0.0.7"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "1c36d2bbc763f480668d6d6790ae2fdd2e52ac0c21a3a26d156f3534a3d9eea9"
 
 [[package]]
 name = "ryu"

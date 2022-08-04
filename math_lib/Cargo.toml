@@ -24,6 +24,7 @@ rand = "0.7"
 autocfg = "1.1.0"
 error-stack = "0.1.1"
 clap = { version = "3.2.16", features = ["derive"] }
+openssl-sys = "0.9.75"
 
 [dev-dependencies]
 criterion = "0.3.6"

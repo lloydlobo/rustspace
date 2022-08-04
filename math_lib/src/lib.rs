@@ -9,7 +9,7 @@ impl MathLibSqrt {
     }
 
     pub fn rust_lib_sqrt(number: f64) {
-        let _ =number.sqrt();
+        let _ = number.sqrt();
     }
 }
 

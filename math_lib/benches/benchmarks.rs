@@ -10,24 +10,31 @@ fn simple_characters_test(c: &mut Criterion) {
     group.finish();
 }
 
-fn lib_sqrt_tests(c: &mut Criterion) {
-    let mut group = c.benchmark_group("SQRT");
-
+fn time_delay_test(c: &mut Criterion) {
     let time_ms = 10;
     let ten_millis = time::Duration::from_millis(time_ms);
     let now = time::Instant::now();
     thread::sleep(ten_millis);
     println!("now({}): {:?}", time_ms, now);
-
     let now = time::Instant::now();
     sleep(Duration::from_millis(time_ms));
     println!("now({}): {:?}", time_ms, now);
+    c.bench_function("forced_zero_time_test_0", |b| {
+        b.iter(|| Duration::new(0, 0))
+    });
+}
 
-    let num: f64 = black_box(100.0);
-    group.bench_function("Bench 1: Custom Math Lib SQRT 1", |b| {
+fn lib_sqrt_tests(c: &mut Criterion) {
+    let mut group = c.benchmark_group("SQRT");
+
+
+    let num_common: i32 = 10_000;
+    let num: f64 = black_box(num_common as f64);
+
+    group.bench_function("Bench 1: Math SQRT", |b| {
         b.iter(|| MathLibSqrt::math_lib_sqrt(num))
     });
-    group.bench_function("Bench 2: Rust Lib SQRT 2", |b| {
+    group.bench_function("Bench 2: Rust SQRT", |b| {
         b.iter(|| MathLibSqrt::rust_lib_sqrt(num))
     });
 
@@ -40,7 +47,7 @@ fn zero_test(c: &mut Criterion) {
     });
 }
 
-criterion_group!(benches, simple_characters_test, lib_sqrt_tests, zero_test);
+criterion_group!(benches, simple_characters_test, time_delay_test, lib_sqrt_tests, zero_test);
 criterion_main!(benches);
 
 // fn bench_simple(c: &mut Criterion) {

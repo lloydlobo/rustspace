@@ -3,7 +3,6 @@ pub(crate) struct Sqrt;
 impl Sqrt {
     fn binary_search_sqrt_f64(value: f64, left: f64, right: f64) -> f64 {
         let root = (left + right) / 2.0;
-        // println!("root_f: {}, left_f: {}, right_f: {}", root, left, right);
         if root == left || root == right {
             return root as f64;
         }
@@ -13,10 +12,6 @@ impl Sqrt {
             Sqrt::binary_search_sqrt_f64(value, root, right)
         }
     }
-
-    // pub fn new(n: f64) -> f64 {
-    //     Self::custom_sqrt(n)
-    // }
 
     pub(crate) fn custom_sqrt(n: f64) -> f64 {
         Sqrt::binary_search_sqrt_f64(n, 0.0, n)
@@ -63,7 +58,6 @@ mod tests {
 
     #[test]
     fn test_sqrt_custom_std_iter_sqrt() {
-
         let malloc: f64 = 100_000.0;
         let usize: usize = malloc as usize;
         let mut v: Vec<f64> = Vec::with_capacity(usize);
@@ -86,5 +80,5 @@ mod tests {
         fn next_char(float: f64) -> char {
             float.to_string().chars().next().unwrap()
         }
-    }  
+    }
 }

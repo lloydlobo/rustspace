@@ -2,7 +2,7 @@ use criterion::*;
 use std::thread::{self, sleep};
 use std::time::{self, Duration};
 
-use math_lib::math_lib_sqrt;
+use math_lib::*;
 
 fn simple_characters_test(c: &mut Criterion) {
     let mut group = c.benchmark_group("\"*group/\"");
@@ -24,8 +24,12 @@ fn lib_sqrt_tests(c: &mut Criterion) {
     println!("now({}): {:?}", time_ms, now);
 
     let num: f64 = black_box(100.0);
-    group.bench_function("Bench 1: Custom SQRT 1", |b| b.iter(|| math_lib_sqrt(num)));
-    group.bench_function("Bench 2: Custom SQRT 2", |b| b.iter(|| math_lib_sqrt(num)));
+    group.bench_function("Bench 1: Custom Math Lib SQRT 1", |b| {
+        b.iter(|| MathLibSqrt::math_lib_sqrt(num))
+    });
+    group.bench_function("Bench 2: Rust Lib SQRT 2", |b| {
+        b.iter(|| MathLibSqrt::rust_lib_sqrt(num))
+    });
 
     group.finish();
 }

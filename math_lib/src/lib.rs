@@ -1,8 +1,16 @@
 pub(crate) mod sqrt;
 pub(crate) use sqrt::sqrt_f64::Sqrt;
 
-pub fn math_lib_sqrt(number: f64) {
-    Sqrt::custom_sqrt(number);
+pub struct MathLibSqrt;
+
+impl MathLibSqrt {
+    pub fn math_lib_sqrt(number: f64) {
+        Sqrt::custom_sqrt(number);
+    }
+
+    pub fn rust_lib_sqrt(number: f64) {
+        let _ =number.sqrt();
+    }
 }
 
 #[cfg(test)]
@@ -33,7 +41,7 @@ mod tests {
         thread::sleep(ten_millis);
         trace!("now({}): {:?}", time_ms, time_start);
 
-        math_lib_sqrt(black_box(100.0));
+        MathLibSqrt::math_lib_sqrt(black_box(100.0));
 
         let time_end: time::Instant = time::Instant::now();
         sleep(Duration::from_millis(time_ms));

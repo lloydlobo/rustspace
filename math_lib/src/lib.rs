@@ -25,7 +25,14 @@ mod tests {
     }
 
     #[test]
-    fn it_return_sqrt() {
+    fn test_sqrt_custom_sqrt() {
+        let number = 81.0;
+        let sqrt = Sqrt::custom_sqrt(number);
+
+        assert_eq!(sqrt, 9.0);
+    }
+    #[test]
+    fn bench_math_lib_sqrt() {
         let time_ms: u64 = 10;
         let ten_millis: Duration = time::Duration::from_millis(time_ms);
 
@@ -41,6 +48,8 @@ mod tests {
 
         let time_elapsed: Duration = time_end - time_start;
         let time_elapsed_ms: u128 = time_elapsed.as_millis();
+        println!("{}", time_elapsed_ms);
         assert_ne!(time_elapsed_ms, 100);
+        assert_eq!(time_elapsed_ms, 10);
     }
 }

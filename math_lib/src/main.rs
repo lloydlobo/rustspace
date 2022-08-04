@@ -1,6 +1,6 @@
 use crate::sqrt::sqrt_f64::Sqrt;
 use colored::*;
-use log::{info, warn};
+use log::info;
 use serde::{Deserialize, Serialize};
 use serde_json::Value;
 

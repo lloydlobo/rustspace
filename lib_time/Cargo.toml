@@ -2,7 +2,45 @@
 name = "lib_time"
 version = "0.1.0"
 edition = "2021"
+readme = "README.md"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
+anyhow = "1.0.59"
+colored = "2.0.0"
+serde = "1.0.142"
+serde_json = "1.0.83"
+log = "0.4.17"
+chrono = "0.4.19"
+roots = "0.0.7"
+thiserror = "1.0.32"
+tracing = "0.1.36"
+# env_logger = "0.9.0"
+# pretty_env_logger = "0.4.0"
+# reqwest = "0.11.11"
+rand = "0.7"
+autocfg = "1.1.0"
+error-stack = "0.1.1"
+clap = { version = "3.2.16", features = ["derive"] }
+openssl-sys = "0.9.75"
+
+[dev-dependencies]
+criterion = "0.3.6"
+# bacon = "2.2.1"
+approx = "0.3"
+quickcheck = { version = "0.9", default-features = false }
+
+[[bench]]
+name = "benchmarks"
+harness = false     # if true, the benchmark will be run with the `criterion` crate # disables rust built in benchmarks
+
+[dependencies.plotters]
+version = "0.3.1"
+default-features = false
+features = ["svg_backend", "area_series", "line_series"]
+optional = true
+
+[features]
+# Enable the plotters plotting backend.
+plotters_backend = ["plotters"]

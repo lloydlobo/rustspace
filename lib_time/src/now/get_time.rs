@@ -10,7 +10,7 @@ pub(crate) fn get_time_now() -> f64 {
 
 #[cfg(test)]
 mod tests {
-    use std::{time::Duration, thread::sleep};
+    use std::{thread::sleep, time::Duration};
 
     use super::*;
 
@@ -33,6 +33,11 @@ mod tests {
         let time_diff: f64 = now_2 - now_1;
 
         assert_eq!(time_diff.round(), 2f64);
+    }
+    #[test]
+    fn test_now_chrono() {
+        let present = get_time_now();
+        assert_eq!(present.round(), get_time_now().round());
     }
 }
 

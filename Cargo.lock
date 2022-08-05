@@ -1339,6 +1339,26 @@ checksum = "e2abad23fbc42b3700f2f279844dc832adb2b2eb069b2df918f455c4e18cc646"
 [[package]]
 name = "lib_time"
 version = "0.1.0"
+dependencies = [
+ "anyhow",
+ "approx",
+ "autocfg 1.1.0",
+ "chrono",
+ "clap 3.2.16",
+ "colored",
+ "criterion",
+ "error-stack",
+ "log",
+ "openssl-sys",
+ "plotters",
+ "quickcheck",
+ "rand 0.7.3",
+ "roots",
+ "serde",
+ "serde_json",
+ "thiserror",
+ "tracing",
+]
 
 [[package]]
 name = "libc"

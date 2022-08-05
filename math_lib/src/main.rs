@@ -29,12 +29,13 @@ fn distance() -> f64 {
     let a: f64 = ax - bx;
     let b: f64 = ay - by;
     let result_sqrt = Sqrt::custom_sqrt(a * a + b * b);
-    let ab_x = (va.0 - vb.0);
-    let ab_y = (va.1 - vb.1);
+    let ab_x = va.x- vb.y;
+    let ab_y = va.x - vb.x;
     let a_b = ab_x * ab_x + ab_y * ab_y;
     let distance_std = a_b.sqrt();
 
     println!("lib | result: {}", result_sqrt);
+    println!("lib | result: {}", distance_std);
 
     result_sqrt
 }

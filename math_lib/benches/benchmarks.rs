@@ -27,7 +27,6 @@ fn time_delay_test(c: &mut Criterion) {
 fn lib_sqrt_tests(c: &mut Criterion) {
     let mut group = c.benchmark_group("SQRT");
 
-
     let num_common: i32 = 10_000;
     let num: f64 = black_box(num_common as f64);
 
@@ -47,7 +46,13 @@ fn zero_test(c: &mut Criterion) {
     });
 }
 
-criterion_group!(benches, simple_characters_test, time_delay_test, lib_sqrt_tests, zero_test);
+criterion_group!(
+    benches,
+    simple_characters_test,
+    time_delay_test,
+    lib_sqrt_tests,
+    zero_test
+);
 criterion_main!(benches);
 
 // fn bench_simple(c: &mut Criterion) {

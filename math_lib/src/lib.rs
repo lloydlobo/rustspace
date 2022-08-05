@@ -1,7 +1,7 @@
 pub(crate) mod sqrt;
 pub(crate) use sqrt::sqrt_f64::Sqrt;
 
-use crate::env_logger;
+// use crate::env_logger;
 pub struct MathLibSqrt;
 
 impl MathLibSqrt {
